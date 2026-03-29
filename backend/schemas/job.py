@@ -1,5 +1,5 @@
 from typing import Optional
-from  datetime import datetime
+from datetime import datetime
 from pydantic import BaseModel 
 
 class StoryJobBase(BaseModel):
@@ -10,7 +10,7 @@ class StoryJobResponse(BaseModel):
     status: str
     created_at: datetime
     story_id: Optional[int] = None
-    completed_at = Optional[datetime] = None
+    completed_at: Optional[datetime] = None
     error: Optional[str] = None
 
     class Config:

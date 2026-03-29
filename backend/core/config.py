@@ -1,5 +1,5 @@
 from typing import List
-from pydantic import BaseSettings
+from pydantic_settings import BaseSettings
 from pydantic import field_validator
 
 class Settings(BaseSettings):
@@ -8,11 +8,11 @@ class Settings(BaseSettings):
 
     DATABASE_URL: str
 
-    ALLOWED_ORIGINS: str = ""
+    ALLOWED_ORIGIN: str = ""
 
     OPENAI_API_KEY: str
 
-    @field_validator('ALLOWED_ORIGINS')
+    @field_validator('ALLOWED_ORIGIN')
     # convert comma-separated string to list of strings
     def parse_allowed_origins(cls, v: str) -> List[str]:
         return v.split(",") if v else []

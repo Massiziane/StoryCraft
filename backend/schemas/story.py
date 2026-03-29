@@ -13,9 +13,9 @@ class StoryNodeBase(BaseModel):
     is_winning: bool = False
 
 
-class CompleteStoryNodeResponse():
+class CompleteStoryNodeResponse(BaseModel):
     id: int
-    options: List(StoryOptionasSchema) = []
+    options: List[StoryOptionasSchema] = []
 
     class Config:
         from_attributes = True
