@@ -5,6 +5,10 @@ from core.config import settings
 
 from routers import story, job
 
+from db.database import create_tables
+
+create_tables()
+
 
 # Create FastAPI app
 app = FastAPI(
