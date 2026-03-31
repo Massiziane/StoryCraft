@@ -89,8 +89,11 @@ def _process_story_data(cls,
                 "text": option_data.text
                 "node_id": child_node.id
             })
-            
+
         node.options = options_list
+    
+    db.flush()
+    return node
 
 
 
