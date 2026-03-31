@@ -29,7 +29,7 @@ def create_story(
     session_id: str = Depends(get_session_id),
     db: Session = Depends(get_db)
 ):
-    response.set_cookie(key="session_id", values=session_id, httponly=True)
+    response.set_cookie(key="session_id", value=session_id, httponly=True)
 
     job_id = str(uuid.uuid4())
 
