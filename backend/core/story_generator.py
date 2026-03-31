@@ -65,10 +65,10 @@ def _process_story_data(cls,
                         is_root: bool = False) -> StoryNode:
     node = StoryNode(
         story_id=story_id,
-        content=node_data.content if hasattr(node_data, "content") else node_data["content"] # safety check for both dict and pydantic model
+        content=node_data.content if hasattr(node_data, "content") else node_data["content"], # safety check for both dict and pydantic model
         is_root=is_root,
         is_ending=node_data.isEnding if hasattr(node_data, "isEnding") else node_data["isEnding"],
-        is_winning=node_data.isWinningEnding if hasattr(node_data, "isWinningEnding") else node_data["isWinningEnding"]
+        is_winning=node_data.isWinningEnding if hasattr(node_data, "isWinningEnding") else node_data["isWinningEnding"],
         options=[]
     )
     db.add(node)
@@ -86,7 +86,7 @@ def _process_story_data(cls,
             child_node = cls._process_story_data(db, story_id, next_node, is_root=False)
 
             options_list.append({
-                "text": option_data.text
+                "text": option_data.text,
                 "node_id": child_node.id
             })
 
